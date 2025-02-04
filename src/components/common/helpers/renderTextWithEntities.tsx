@@ -538,12 +538,6 @@ function processEntity({
           {renderNestedMessagePart()}
         </MentionLink>
       );
-    case ApiMessageEntityTypes.Mention:
-      return (
-        <MentionLink username={entityText}>
-          {renderNestedMessagePart()}
-        </MentionLink>
-      );
     case ApiMessageEntityTypes.Phone:
       return (
         <a
@@ -559,16 +553,16 @@ function processEntity({
       return <CodeBlock text={entityText} language={entity.language} noCopy={isProtected} />;
     case ApiMessageEntityTypes.Strike:
       return <del data-entity-type={entity.type}>{renderNestedMessagePart()}</del>;
-    case ApiMessageEntityTypes.TextUrl:
-    case ApiMessageEntityTypes.Url:
-      return (
-        <SafeLink
-          url={getLinkUrl(entityText, entity)}
-          text={entityText}
-        >
-          {renderNestedMessagePart()}
-        </SafeLink>
-      );
+    // case ApiMessageEntityTypes.TextUrl:
+    // case ApiMessageEntityTypes.Url:
+    //   return (
+    //     <SafeLink
+    //       url={getLinkUrl(entityText, entity)}
+    //       text={entityText}
+    //     >
+    //       {renderNestedMessagePart()}
+    //     </SafeLink>
+    //   );
     case ApiMessageEntityTypes.Underline:
       return <ins data-entity-type={entity.type}>{renderNestedMessagePart()}</ins>;
     case ApiMessageEntityTypes.Spoiler:
@@ -627,6 +621,7 @@ function processEntityAsHtml(
     case ApiMessageEntityTypes.Strike:
       return `<del>${renderedContent}</del>`;
     case ApiMessageEntityTypes.MentionName:
+      console.log('MentionName', entity);
       return `<a
         class="text-entity-link"
         data-entity-type="${ApiMessageEntityTypes.MentionName}"

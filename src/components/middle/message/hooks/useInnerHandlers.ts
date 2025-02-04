@@ -73,10 +73,10 @@ export default function useInnerHandlers({
     }
 
     if (asForwarded && forwardInfo?.channelPostId) {
-      focusMessage({ chatId: senderPeer.id, messageId: forwardInfo.channelPostId });
-    } else {
-      openChat({ id: senderPeer.id });
+      return;
     }
+
+    openChat({ id: senderPeer.id });
   });
 
   const handleViaBotClick = useLastCallback(() => {

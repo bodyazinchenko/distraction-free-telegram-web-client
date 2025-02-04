@@ -346,10 +346,6 @@ export function buildMtpMessageEntity(entity: ApiMessageEntity): GramJs.TypeMess
       return new GramJs.MessageEntityPre({ offset, length, language: entity.language || '' });
     case ApiMessageEntityTypes.Blockquote:
       return new GramJs.MessageEntityBlockquote({ offset, length });
-    case ApiMessageEntityTypes.TextUrl:
-      return new GramJs.MessageEntityTextUrl({ offset, length, url: entity.url });
-    case ApiMessageEntityTypes.Url:
-      return new GramJs.MessageEntityUrl({ offset, length });
     case ApiMessageEntityTypes.Hashtag:
       return new GramJs.MessageEntityHashtag({ offset, length });
     case ApiMessageEntityTypes.MentionName:
