@@ -225,16 +225,16 @@ export default function createConfig(
       new ProvidePlugin({
         Buffer: ['buffer', 'Buffer'],
       }),
-      new StatoscopeWebpackPlugin({
-        statsOptions: {
-          context: __dirname,
-        },
-        saveReportTo: path.resolve('./public/statoscope-report.html'),
-        saveStatsTo: path.resolve('./public/build-stats.json'),
-        normalizeStats: true,
-        open: 'file',
-        extensions: [new WebpackContextExtension()], // eslint-disable-line @typescript-eslint/no-use-before-define
-      }),
+      // new StatoscopeWebpackPlugin({
+      //   statsOptions: {
+      //     context: __dirname,
+      //   },
+      //   saveReportTo: path.resolve('./public/statoscope-report.html'),
+      //   saveStatsTo: path.resolve('./public/build-stats.json'),
+      //   normalizeStats: true,
+      //   open: 'file',
+      //   extensions: [new WebpackContextExtension()], // eslint-disable-line @typescript-eslint/no-use-before-define
+      // }),
     ],
 
     devtool: APP_ENV === 'production' && IS_PACKAGED_ELECTRON ? undefined : 'source-map',
